@@ -475,10 +475,13 @@ jobs:
                   pushd /opt/flutter
                 ;;
               esac
-              git apply rdgen/.github/patches/flutter_3.24.4_dropdown_menu_enableFilter.diff
+              if [[ -f ${{ github.workspace }}/.github/patches/flutter_3.24.4_dropdown_menu_enableFilter.diff ]]; then
+               git apply ${{ github.workspace }}/.github/patches/flutter_3.24.4_dropdown_menu_enableFilter.diff
+              else
+              echo "Patch file not found. Skipping patch application."
+             fi
               popd
-            fi
-
+             fi
             # build flutter
             pushd /workspace
             mkdir output
