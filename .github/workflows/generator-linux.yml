@@ -475,7 +475,7 @@ jobs:
                   pushd /opt/flutter
                 ;;
               esac
-              git apply ${{ github.workspace }}/.github/patches/flutter_3.24.4_dropdown_menu_enableFilter.diff
+              git apply rdgen/.github/patches/flutter_3.24.4_dropdown_menu_enableFilter.diff
               popd
             fi
 
